@@ -1,2 +1,4 @@
-# cfn_json_to_yaml
-Ruby Script - Simple CloudFormation JSON to YAML Converter
+# CloudFormation Template JSON to YAML Converter
+
+## Purpose
+Simply Python Script to convert CloudFormation Template from JSON to YAML format.
