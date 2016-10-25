@@ -5,19 +5,20 @@ require 'json'
 require 'optparse'
 require 'pp'
 require 'fileutils'
-@script_version = '1.0.0-20161022'
+@script_version = '1.0.1-20161025'
 
 # Parse Arguments/Options
 @options = Hash.new
+ARGV << '-h' if ARGV.empty?
 options_parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: cfn-converter.rb [options]'
+  opts.banner = 'Usage: cfn-converter.rb -f filename.(json || yml || yaml) [options]'
   opts.separator ''
   opts.separator 'Options:'
 
-  opts.on('-f', '--file FULLNAME', 'JSON or YAML Template File Full Path if not in same Directory') do |opt|
+  opts.on('-f', '--file FULLNAME', '(Required) JSON or YAML Template File Full Path if not in same Directory') do |opt|
     @options['source_file'] = opt
   end
-  opts.on_tail('-o', '--overwrite', 'Overwrite Output File') do
+  opts.on('-o', '--overwrite', 'Overwrite Output File') do
     @options['overwrite'] = true
   end
 
