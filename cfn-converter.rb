@@ -5,7 +5,7 @@ require 'json'
 require 'optparse'
 require 'pp'
 require 'fileutils'
-@script_version = '1.0.1-20161025'
+@script_version = '1.0.2-20161027'
 
 # Parse Arguments/Options
 @options = Hash.new
@@ -85,22 +85,26 @@ def output_verify
   end
 end
 
+def set_output_file(file_extension, dir_name, file_name_noext)
+  if file_extension == '.json'
+    @options['output_file'] = File.join(dir_name, "#{file_name_noext}.yml")
+    output_verify
+    j2y
+  elsif file_extension == '.yaml' || file_extension == '.yml'
+    @options['output_file'] = File.join(dir_name, "#{file_name_noext}.json")
+    output_verify
+    y2j
+  else
+    show_error "ERROR: Unknown File Type (#{file_extension})"
+  end
+end
+
 def perform_conversion
   if File.exist?(@options['source_file'])
     file_extension = File.extname(@options['source_file'])
     dir_name = File.dirname(@options['source_file'])
     file_name_noext = File.basename(@options['source_file'], '.*')
-    if file_extension == '.json'
-      @options['output_file'] = File.join(dir_name, "#{file_name_noext}.yml")
-      output_verify
-      j2y
-    elsif file_extension == '.yaml' || file_extension == '.yml'
-      @options['output_file'] = File.join(dir_name, "#{file_name_noext}.json")
-      output_verify
-      y2j
-    else
-      show_error "ERROR: Unknown File Type (#{file_extension})"
-    end
+    set_output_file(file_extension, dir_name, file_name_noext)
   else
     show_error 'ERROR: Source Template File Not Found!'
   end
