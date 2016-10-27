@@ -38,3 +38,12 @@ First rename .template to .json or .yml
     PATH="/Users/username/cfn_converter:$PATH"
     ```
     
+### Convert Multiple Recursively
+Here's a way in BASH to convert all JSONs to YAMLs. I used this to convert the whole [cloudformation_templates repo](https://github.com/bonusbits/cloudformation_templates)
+
+Basically find all JSON files from current working directory on down. Exclude any with **parameters** or **snippets** in the name.
+
+```bash
+find . -name '*.json' ! -name '*parameters*' ! -name 'snippets' -exec /usr/local/bin/cfn-converter -f {} \;
+```
+    
