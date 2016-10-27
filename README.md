@@ -1,5 +1,5 @@
 # CloudFormation Template Format Converters
-[![Circle CI](https://circleci.com/gh/bonusbits/cfn_json_to_yaml/tree/master.svg?style=shield)](https://circleci.com/gh/bonusbits/cfn_json_to_yaml/tree/master)
+[![Circle CI](https://circleci.com/gh/bonusbits/cfn_converter/tree/master.svg?style=shield)](https://circleci.com/gh/bonusbits/cfn_converter/tree/master)
 
 ## Purpose
 A simply Ruby script to convert CloudFormation Template from JSON to YAML format or YAML to JSON.
