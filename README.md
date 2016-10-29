@@ -14,11 +14,13 @@ It is set to not overwrite by default. It will bail out if the same output filen
 First rename .template to .json or .yml
 
 ### System Ruby
+
 ```bash
 ./cfn-converter -f json_file.json
 ./cfn-converter -f yaml_file.yml
 ```
 ### ChefDK Ruby
+
 ```bash
 /opt/chefdk/embedded/bin/ruby cfn-converter.rb -f json_file.json
 /opt/chefdk/embedded/bin/ruby cfn-converter.rb -f yaml_file.yml
@@ -26,14 +28,17 @@ First rename .template to .json or .yml
 
 ## Access Options
 1. Create alias
+
     ```bash
     alias cfn-converter="/Users/username/cfn_converter/cfn-converter.rb"
     ```
 2. Symlink the ruby script to a place in path
+
     ```bash
     ln -s "/Users/username/cfn_converter/cfn-converter.rb" /usr/local/bin/cfn-converter
     ```
 3. Add cloned repo path to environment path
+
     ```bash
     PATH="/Users/username/cfn_converter:$PATH"
     ```
