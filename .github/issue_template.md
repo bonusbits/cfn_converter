@@ -4,6 +4,7 @@
 - [ ] Refactor
 - [ ] Question
 - [ ] Documentation
+- [ ] Tests
 - [ ] Other
 
 ## Details
