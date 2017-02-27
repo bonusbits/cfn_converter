@@ -1,8 +1,9 @@
 ## Request
+- [ ] Bug
 - [ ] New Feature
 - [ ] Refactor
-- [ ] Bug
 - [ ] Question
+- [ ] Documentation
 - [ ] Other
 
 ## Details
